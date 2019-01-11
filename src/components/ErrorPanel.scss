@@ -1,0 +1,20 @@
+@import "../general.scss";
+
+.error-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  color: $red;
+  background-color: lighten($red, 50%);
+  padding-right: 3px;
+  @extend %rectangle;
+  .fa-times-circle {
+    cursor: pointer;
+    align-self: flex-start;
+    font-size: 1.2em;
+    &:hover {
+       color: black;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+$red: #B40000;
+$darkgrey: darkgrey;
+$lightgrey: lightgrey;
+$grey: grey;
+$green: green;
+$background: #282c34;
+
+%rectangle {
+    width: 30vw;
+    min-width: 400px;
+    border-radius: 5px;
+    height: 40px;
+    padding: 5px 10px;
+    margin: 5px 0;
+}

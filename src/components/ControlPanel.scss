@@ -1,0 +1,44 @@
+@import "../general.scss";
+
+.App-header {
+  background-color: $background;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  margin-bottom: 2vmin;
+}
+
+.control-panel {
+  display: flex;
+  width: 100%;
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
+  button {
+    flex: 1;
+    height: 40px;
+    cursor: pointer;
+    &.active {
+      i {
+        color: $green;
+      }
+    }
+    i {
+      color: $grey;
+      margin-right: 5px;
+      font-size: 1.5em;
+    }
+    &:hover {
+      i {
+        color: $green;
+        &.fa-trash {
+          color: $red;
+        }
+      }
+    }
+  }
+}

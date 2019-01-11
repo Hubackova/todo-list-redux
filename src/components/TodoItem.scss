@@ -1,0 +1,46 @@
+@import "../general.scss";
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  input {
+    @extend %rectangle;
+    border: 1px solid $darkgrey;
+    @media (max-width: 640px) {
+      width: 90%;
+      min-width: 200px;
+    }
+    outline: none;
+    &:not(.input-readonly) {
+      border: 1px solid $green;
+    }
+    &.input-readonly {
+      cursor: pointer;
+      background-color: $lightgrey;
+      &:hover {
+        background-color: lighten($lightgrey, 10%);
+      }
+    }
+  }
+
+  .icon-button {
+    cursor: pointer;
+    font-size: 1.8rem;
+    vertical-align: middle;
+    margin: 0 10px;
+    &.fa-check-circle {
+      color: $green;
+    }
+    &.fa-check-circle:hover {
+      color: lighten($green, 10%);
+    }
+    &.fa-circle:hover {
+      color: $green;
+    }
+    &.fa-trash:hover {
+      color: $red;
+    }
+  }
+}

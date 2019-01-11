@@ -1,68 +1,76 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Todo App
 
 ## Available Scripts
 
-In the project directory, you can run:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### `npm start`
+#### `npm start`
 
-Runs the app in the development mode.<br>
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+It is expected that the backend server is running on the port 8080 ([http://localhost:8080](http://localhost:8080)). It is possible to configure the proxy in package.json file.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+#### `npm test`
 
-### `npm test`
+Launches the test runner in the interactive watch mode.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### `npm run build`
 
-### `npm run build`
+Builds the app for production to the `build` folder.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### `npm run eject`
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+*****
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Tech-stack
 
-### `npm run eject`
+- used 3rd party libraries/packages (React + Redux was in the task assignment :))
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### redux-saga
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- for handle side effects
+- i have no experience with another middleware, so saga was a clear choice
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### reselect
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- i did not use selectors before (i worked with Redux just for a 2 months), but i know that people in Moro like them, so i try it and it is perfect!
 
-## Learn More
+### axios
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- as a http client
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### node-sass
 
-### Code Splitting
+- for compiling .scss files.
+- due to limited time, I did not care much about the styling and .scss files structure. But app should be responsive and I hope it does not look ugly :) I am not sure what is the best way for styling react-apps, so I am curious what approach prefer developers in Moro :) I'm currently experimenting with styled-components in a larger projects.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### mocha, chai, enzyme
 
-### Analyzing the Bundle Size
+- see tests section below
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### prettier, eslint
 
-### Making a Progressive Web App
+- prettier as a code formatter (i have install it globally), eslint as a linter
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Notes
 
-### Advanced Configuration
+### store shape
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+- I was considering to use normalizr to normalize store shape. But I think it is not necessary in such a small app. In case of deeply nested data API response or really large amount of todo items (no iterating over arrays in reducers → better performance), i would use it.
 
-### Deployment
+### immutability
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+- I know that Moro use ImmutableJS, but I like classic JS Object and Array data types and their methods :) I was trying to ensure immutability using spread operators etc., but I admit that this approach can be challenging in large applications
 
-### `npm run build` fails to minify
+### file structure
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- I prefer modular file structure in larger apps, but in this case is function-first structure ok (in my opinion...)
+
+### tests
+
+- Honestly, I do not have much previous experience with unit/integration testing and none experience with testing Redux applications (I did just some API Testing using Mocha + Chai). It is a shame and I would like to do something with it in near future.
+- I tried to use enzyme+chai and write a few example tests. Unfortunately, I have no time for more of them right now. (However, I am quite comfortable with writing e2e in cypress.io)
+
+### API
+
+- would not be better to use PUT/PATCH for "editing" requests?
